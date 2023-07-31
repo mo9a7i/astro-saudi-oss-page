@@ -1,0 +1,40 @@
+---
+import { downloadAvatar, downloadPlaceholder } from "./../utilities/getAvatar";
+import { Icon } from 'astro-icon'
+
+const { dev } = Astro.props;
+let imagePath = null;
+if (dev.githubURL) {
+    // Regular expression to extract the username from a GitHub URL
+    const usernameRegex = /github\.com\/([^/]+)(\/|$)/;
+    const match = dev.githubURL.match(usernameRegex);
+
+    if (match && match[1]) {
+        const username = match[1];
+        imagePath = await downloadAvatar(username);
+    } else {
+        console.log("Invalid GitHub URL or username not found.");
+    }
+} else {
+    console.log("No GitHub URL found for" + dev.name + ".");
+    imagePath = await downloadPlaceholder(dev.name);
+}
+if(!dev.githubURL){
+	dev.githubURL = "#";
+}
+imagePath = imagePath?.replaceAll('\\','/').replaceAll('public', '');
+---
+
+<div class="flex rounded-lg justify-between gap-3 items-center p-3 bg-blue-800 bg-opacity-20 even:bg-opacity-30 hover:bg-opacity-10">
+	<a href={dev.githubURL} class="flex gap-3 items-center">
+		<img class="w-10 h-10 rounded-full" src={imagePath} alt="Rounded avatar">
+    	<p>{dev.name}</p>
+	</a>
+	
+	<a href="#" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-white bg-opacity-20 rounded-lg ">
+		المشاريع البرمجية <Icon class="h-6 ms-3" pack="mdi" name="code" />
+		<span class="sr-only">المشاريع البرمجية </span>
+		<div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-white bg-opacity-20   rounded-full -top-2 -left-2 ">{dev.projects.length}</div>
+	</a>
+	  
+</div>
