@@ -1,6 +1,7 @@
 ---
 import { downloadAvatar, downloadPlaceholder } from "./../utilities/getAvatar";
 import { Icon } from 'astro-icon'
+import { Image } from '@astrojs/image/components';
 
 const { dev } = Astro.props;
 let imagePath = null;
@@ -23,11 +24,18 @@ if(!dev.githubURL){
 	dev.githubURL = "#";
 }
 imagePath = imagePath?.replaceAll('\\','/').replaceAll('public', '');
+console.log(imagePath);
 ---
 
 <div class="flex rounded-lg justify-between gap-3 items-center p-3 bg-blue-800 bg-opacity-20 even:bg-opacity-30 hover:bg-opacity-10">
 	<a href={dev.githubURL} class="flex gap-3 items-center">
-		<img class="w-10 h-10 rounded-full" src={imagePath} alt="Rounded avatar">
+        <Image
+        width={64} 
+        aspectRatio="1:1" 
+        format='png'
+        class="w-10 h-10 rounded-full" 
+        src={`/public${imagePath}`} 
+        alt={dev.name} />
     	<p>{dev.name}</p>
 	</a>
 	
