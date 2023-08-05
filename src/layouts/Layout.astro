@@ -25,15 +25,17 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="dark:bg-green-950 dark:text-white bg-[url('/assets/images/background.svg')] 
-	before:bg-gradient-to-tr 
-	before:from-sky-500 
-	before:to-green-500 
-	before:bg-opacity-50
-	before:absolute 
-	before:w-full before:h-full 
-	before:top-0 before:left-0 
-	relative 
-	before:-z-30">
+		before:bg-gradient-to-tr 
+		before:from-sky-500 
+		before:to-green-500 
+		before:bg-opacity-50
+		before:absolute 
+		before:w-full before:h-full 
+		before:top-0 before:left-0 
+		relative 
+		before:-z-30">
 		<slot />
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+
 	</body>
 </html>

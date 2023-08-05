@@ -18,6 +18,7 @@ async function downloadAvatar(username) {
   if (fs.existsSync(avatarPath)) {
     return avatarPath;
   }
+  console.log('does not exist')
 
   try {
     const avatarUrl = `https://github.com/${username}.png?size=200`;
@@ -25,6 +26,7 @@ async function downloadAvatar(username) {
     const buffer = Buffer.from(response.data);
 
     await fsPromisified.writeFile(avatarPath, buffer);
+    console.log("Avatar downloaded:", username, "path", avatarPath);
     return avatarPath;
   } catch (error) {
     if (error.response && error.response.status === 404) {

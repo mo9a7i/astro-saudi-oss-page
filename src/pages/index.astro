@@ -3,24 +3,35 @@ import Layout from "../layouts/Layout.astro";
 import Developers from "../components/sections/Developers.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+const title = "مجموعة المصادر المفتوحة السعودية";
 ---
 
-<Layout title="المجموعة السعودية للمصادر المفتوحة">
+<Layout title={title}>
     <main>
-        <Header />
+        <Header title={title} />
         <section id="intro">
-            <div class="container mx-auto">
+            <div class="container mx-auto  p-2">
                 <p>
                     الهدف من فكرة جمع المشاريع المفتوحة المصدر هو تحفيز المجتمع التقني السعودي لإثراء المحتوى البرمجي وخلق بيئة تعارف بين المبرمجين من خلال عرض بعض من أعمالهم. هذه المجموعة تدار من قبل
                     
                 </p>
             </div>
         </section>
-        <section id="cta" class="py-8">
+        <section id="cta" class="py-8  p-2">
 			<div class="container mx-auto">
-				<div class="flex justify-between justify-items-center items-center p-4 text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:bg-opacity-50 dark:text-yellow-300" role="alert">
+				<div class="
+                flex justify-between justify-items-center items-center 
+                p-4 rounded-lg
+                text-white bg-yellow-50 
+                dark:bg-white dark:bg-opacity-50 dark:text-green-600" role="alert">
 					<div>شاركنا وقم بإضافة مشروعك هنا</div>
-					<a target="_blank" href="https://github.com/SaudiOpenSourceCommunity/SaudiOSS" class="block focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:focus:ring-yellow-900">إضافة</a>
+					<a target="_blank" href="https://github.com/SaudiOpenSourceCommunity/SaudiOSS#user-content-%D9%83%D9%8A%D9%81-%D8%A3%D8%B6%D9%8A%D9%81-%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A-----" 
+                    class="block 
+                    font-medium rounded-lg text-sm px-5 py-2.5
+                    focus:outline-none focus:ring-4 
+                    focus:ring-green-300 
+                    text-white bg-green-500
+                    hover:bg-green-400 dark:focus:ring-green-900">إضافة</a>
 				</div>
 			</div>
 		</section>
