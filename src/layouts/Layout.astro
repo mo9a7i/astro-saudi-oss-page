@@ -24,16 +24,12 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="dark:bg-green-950 dark:text-white bg-[url('/assets/images/background.svg')] 
-		before:bg-gradient-to-tr 
-		before:from-sky-500 
-		before:to-green-500 
-		before:bg-opacity-50
-		before:absolute 
-		before:w-full before:h-full 
-		before:top-0 before:left-0 
-		relative 
-		before:-z-30">
+	<body class="
+		dark:text-white 
+		dark:bg-gradient-to-tr dark:from-sky-500 dark:to-green-500
+		bg-gradient-to-tr from-sky-200 to-green-200 
+		text-green-800
+		bg-opacity-50">
 		<slot />
 		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
 
